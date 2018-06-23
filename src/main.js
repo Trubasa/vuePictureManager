@@ -1,4 +1,4 @@
-import Vue from 'vue'
+/*import Vue from 'vue'*/
 import App from './App.vue'
 import vuePictureManager from './lib/index.js'
 

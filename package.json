@@ -1,9 +1,9 @@
 {
   "name": "vue-picture-manager",
   "description": "A Vue.js project",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "author": "trubasa <1141521502@qq.com>",
-  "main": "dist/vue-pay-keyboard.js",
+  "main": "dist/vue-picture-manager.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Trubasa/vuePictureManager"
@@ -15,6 +15,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "element-ui": "^2.4.1",
     "vue": "^2.5.11"
   },
   "browserslist": [
@@ -35,5 +36,4 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   }
-
 }
