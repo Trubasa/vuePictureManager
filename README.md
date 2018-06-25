@@ -6,16 +6,12 @@
 
 npm install vue-picture-manager --save
 
-> 依赖
-
-```$xslt
-
-```
 
 > 引入
 
 - 页面直接引用
-```
+
+```html
   <!--该项目依赖于vue，element-ui，如果您的项目已经引用过，可以不必再次引入-->
     <!--vue-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -30,7 +26,7 @@ npm install vue-picture-manager --save
  ```
 
 - 脚手架导入
-```$xslt
+```html
 //ES6
 import vuePictureManager from 'vue-picture-manager.js'
 //require
@@ -60,7 +56,7 @@ selected | 选中的图片后，点击'确定'回调 | 选中的图片组成的�
 #### 方法（使用方法时记得使用ref给组件注册引用）
 
 - show 打开图片管理器
-```$xslt
+```javascript
 this.$refs.XXX.show({
   defaultUrlList: [],  //默认选中的图片的地址数组
   ensureFun: function (res) {  //选中图片后点击'确定'的回调，返回选中的图片数组
