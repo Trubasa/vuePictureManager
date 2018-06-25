@@ -13,20 +13,20 @@ npm install vue-picture-manager --save
 
 ```html
   <!--该项目依赖于vue，element-ui，如果您的项目已经引用过，可以不必再次引入-->
-    <!--vue-->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <!--element-ui-->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    
-    <!--必须保证在vue和element-ui的引入之后-->
-    <!--vue-picture-manager-->
-    <link rel="stylesheet" href="../static/iconfont/iconfont.css">
-    <script src="../dist/vue-picture-manager.js"></script>
+  <!--vue-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <!--element-ui-->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  
+  <!--必须保证在vue和element-ui的引入之后-->
+  <!--vue-picture-manager-->
+  <link rel="stylesheet" href="../static/iconfont/iconfont.css">
+  <script src="../dist/vue-picture-manager.js"></script>
  ```
 
 - 脚手架导入
-```html
+```javascript
 //ES6
 import vuePictureManager from 'vue-picture-manager.js'
 //require
