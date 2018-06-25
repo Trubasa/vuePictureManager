@@ -41,7 +41,9 @@ Vue.use(vuePictureManager)
 ```
 
 > 使用
+
 ####props
+
 name | description | type 
 --- | --- | ---
 upload-path | 上传接口地址 | String
