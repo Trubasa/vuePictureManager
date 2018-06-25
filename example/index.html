@@ -66,9 +66,9 @@
       showPicManager() {
         var that = this;
         // this.isShow=true;
-        that.$refs.pictureManager.show({
-          defaultUrlList: [],
-          ensureFun: function (res) {
+        this.$refs.pictureManager.show({
+          defaultUrlList: [],  //默认选中的图片的地址数组
+          ensureFun: function (res) {  //选中图片后点击'确定'的回调，返回选中的图片数组
             that.selectedList = res
           }
         });

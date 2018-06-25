@@ -42,11 +42,31 @@ Vue.use(vuePictureManager)
 
 > 使用
 
-####props
+#### 参数
 
 name | description | type 
 --- | --- | ---
 upload-path | 上传接口地址 | String
 img-list | 图片列表 | Array
+
+#### 事件
+
+name | description | type 
+--- | --- | ---
+upload-response| 上传接口返回的数据 | Object
+delete | 删除的图片url | String
+selected | 选中的图片组成的数组 | Array
+
+#### 方法（使用方法时记得使用ref给组件注册引用）
+
+show
+```$xslt
+this.$refs.XXX.show({
+  defaultUrlList: [],  //默认选中的图片的地址数组
+  ensureFun: function (res) {  //选中图片后点击'确定'的回调，返回选中的图片数组
+    that.selectedList = res  
+  }
+});
+```
 
 
