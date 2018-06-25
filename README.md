@@ -1,12 +1,33 @@
 # vuePictureManager
 该项目为图片管理插件，使用vue，element-ui，iconfont等技术进行构建。
-[demo](https://trubasa.github.io/vuePictureManager/example/index.html)
+[demo（在源码的example目录下）](https://trubasa.github.io/vuePictureManager/example/index.html)
 
 > 安装
 
 npm install vue-picture-manager --save
 
+> 依赖
+
+```$xslt
+
+```
+
 > 引入
+
+- 页面直接引用
+```
+  <!--该项目依赖于vue，element-ui，如果您的项目已经引用过，可以不必再次引入-->
+    <!--vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!--element-ui-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    
+    <!--必须保证在vue和element-ui的引入之后-->
+    <!--vue-picture-manager-->
+    <link rel="stylesheet" href="../static/iconfont/iconfont.css">
+    <script src="../dist/vue-picture-manager.js"></script>
+ ```
 
 - 脚手架导入
 ```$xslt
@@ -18,8 +39,12 @@ var vuePictureManager =require(vuePictureManager)
 Vue.use(vuePictureManager)
 
 ```
-- 页面直接引用
-```
-<script src="./node_modules/vue-picture-manager/dist/vue-picture-manager.js"></script>
-```
+
 > 使用
+####props
+name | description | type 
+--- | --- | ---
+upload-path | 上传接口地址 | String
+img-list | 图片列表 | Array
+
+
