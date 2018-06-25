@@ -51,15 +51,15 @@ img-list | 图片列表 | Array
 
 #### 事件
 
-name | description | type 
+name | description | param 
 --- | --- | ---
-upload-response| 上传接口返回的数据 | Object
-delete | 删除的图片url | String
-selected | 选中的图片组成的数组 | Array
+upload-response| 上传接口回调 | 上传接口返回的数据
+delete | 删除的图片回调 | 删除的图片url
+selected | 选中的图片后，点击'确定'回调 | 选中的图片组成的数组
 
 #### 方法（使用方法时记得使用ref给组件注册引用）
 
-show
+show 打开图片管理器
 ```$xslt
 this.$refs.XXX.show({
   defaultUrlList: [],  //默认选中的图片的地址数组
