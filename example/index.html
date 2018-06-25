@@ -1,29 +1,42 @@
-<template>
-  <div id="app">
-    <el-button @click="showPicManager" type="primary">选择图片</el-button>
-    <div v-if="selectedList.length!=0">
-      <img height="200" v-for="item in selectedList" :src="item" alt="">
-    </div>
-    <vue-picture-manager
-      ref="pictureManager"
-      :upload-path="uploadPath"
-      :img-list="imgList"
-      @upload-response="uploadResponse"
-      @delete="deleteHandler"
-      @selected="selected">
-    </vue-picture-manager>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue-picture-manager</title>
+  <!--vue-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <!--element-ui-->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!--vue-picture-manager-->
+  <link rel="stylesheet" href="../static/iconfont/iconfont.css">
+  <script src="../dist/vue-picture-manager.js"></script>
+</head>
+<body>
 
+<div id="app">
+  <el-button @click="showPicManager" type="primary">选择图片</el-button>
+  <div v-if="selectedList.length!=0">
+    <img height="200" v-for="item in selectedList" :src="item" alt="">
   </div>
-</template>
+  <vue-picture-manager
+    ref="pictureManager"
+    :upload-path="uploadPath"
+    :img-list="imgList"
+    @upload-response="uploadResponse"
+    @delete="deleteHandler"
+    @selected="selected">
+  </vue-picture-manager>
 
+</div>
+
+</body>
 <script>
-  import common from './assets/common'
-
-  export default {
-    name: 'app',
-    data() {
+  var app=new Vue({
+    el:"#app",
+    data:function () {
       return {
-        uploadPath:'http://localhost:8084/smallappM/vender/goodsInfo/uploadImg',
+        uploadPath:'http://localhost:8088/smallappM/vender/goodsInfo/uploadImg',
         selectedList: [],
         isShow: false,
         msg: 'Welcome to Your Vue.js App',
@@ -69,33 +82,6 @@
         console.log('选中的图片url：', val);
       }
     }
-  }
+  })
 </script>
-
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
-</style>
+</html>

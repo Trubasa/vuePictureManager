@@ -14,19 +14,34 @@
           <el-radio-button label="left">left</el-radio-button>
         </el-radio-group>-->
 
-        <el-tabs :tab-position="tabPosition" style="height: 400px;">
-          <el-tab-pane label="所有图片">
-            <all-img ref="allImg" :imgList="imgList" @ensure="ensure" @select="selectedImg"></all-img>
+        <el-tabs :tab-position="tabPosition" v-model="activeName" style="height: 400px;">
+          <el-tab-pane label="所有图片" name="1">
+            <all-img ref="allImg"
+                     :img-list="imgList"
+                     @delete="$emit('delete',$event)"
+                     @ensure="ensure"
+                     @select="selectedImg">
+            </all-img>
           </el-tab-pane>
-          <el-tab-pane label="本地上传图片">
-
+          <el-tab-pane label="上传图片" name="2">
+            <my-upload ref="myUpload"
+                       :upload-path="uploadPath"
+                        @upload-response="$emit('upload-response',$event)">
+            </my-upload>
           </el-tab-pane>
-          <el-tab-pane label="添加网络图片">图片上传</el-tab-pane>
+          <!--<el-tab-pane label="添加网络图片" name="3">图片上传</el-tab-pane>-->
         </el-tabs>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="ensure">确 定</el-button>
+        <span v-if="activeName==1">
+          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button type="primary" @click="ensure">确定</el-button>
+        </span>
+        <span v-if="activeName==2">
+          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button type="danger" @click="$refs.myUpload.clearFiles()" >重置</el-button>
+          <el-button type="primary" @click="$refs.myUpload.submit()">上传</el-button>
+        </span>
       </span>
     </el-dialog>
   </div>
@@ -43,15 +58,30 @@
         dialogVisible: false,
         tabPosition: 'left',
         ensureFun: null,
+        activeName:'1'
       }
     },
-    props: {
+    props:['imgList','uploadPath'],
+    /*props: {
       imgList: {
         type: Array,
         default: function () {
           return []
         }
       },
+      uploadPath:{
+        type:String,
+        default:function () {
+          return ''
+        }
+      }
+    },*/
+    watch:{
+      dialogVisible(val){
+        if(!val){
+          this.$refs.allImg.clearSelected();
+        }
+      }
     },
     mounted() {
 
@@ -75,7 +105,15 @@
             return that.$refs.allImg
           },
           ready: function () {
-            that.$refs.allImg.setSelect(obj.defaultUrl || '');
+            if(obj.defaultUrlList){
+              if(Array.isArray(obj.defaultUrlList)){
+                  that.$refs.allImg.selectedList=obj.defaultUrlList;
+              }else{
+                console.error('请确保defaultUrlList为数组');
+              }
+            }
+
+
             if (obj.ensureFun) {
               that.ensureFun = obj.ensureFun;
             }else{

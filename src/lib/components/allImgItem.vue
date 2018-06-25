@@ -1,6 +1,6 @@
 <template>
   <div class="all-img-item">
-    <div :class="['img_box',isSelect?'active':'']" @click="select" @dblclick="$emit('ensure')">
+    <div :class="['img_box',isSelect>-1?'active':'']" @click="select" @dblclick="$emit('ensure')">
       <div class="select_status">
         <i class="vue-picture-manager-icon icon-check2"></i>
       </div>
@@ -9,11 +9,11 @@
         {{imgWidth}} x {{imgHeight}}
       </div>
 
-      <div class="func_panel">
-        <div class="func_item" @click.stop="select">
+      <div class="func_panel" @click.stop="deleteItem">
+        <!--<div class="func_item" @click.stop="select">
           <i class="vue-picture-manager-icon icon-xuanzhong" ></i>
-        </div>
-        <div class="func_item" @click.stop="deleteItem">
+        </div>-->
+        <div class="func_item" >
           <i class="vue-picture-manager-icon icon-ai-delete" ></i>
         </div>
       </div>
@@ -32,7 +32,12 @@ export default {
       imgWidth:0
     }
   },
-  props:['url','isSelect'],
+  props:['url','selectedList'],
+  computed:{
+    isSelect(){
+      return this.selectedList.indexOf(this.url);
+    }
+  },
   mounted(){
     var that=this;
     var img=new Image();
@@ -64,7 +69,7 @@ export default {
     },
     select(){
       // console.log('send select item');
-      this.$emit('select');
+      this.$emit('select',this.url);
     }
   }
 }
