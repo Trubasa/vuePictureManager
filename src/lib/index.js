@@ -5,7 +5,7 @@ import vuePictureManager from './vuePictureManager.vue' // 导入组件
 import allImg from './components/allImg.vue' // 导入组件
 import allImgItem from './components/allImgItem.vue' // 导入组件
 import myUpload from './components/myUpload.vue' // 导入组件
-/*import '../../static/iconfont/iconfont.css'*/
+import '../../static/iconfont/iconfont.css'
 
 const pictureManager = {
   install(Vue, options) {
