@@ -21,7 +21,6 @@ npm install vue-picture-manager --save
   
   <!--必须保证在vue和element-ui的引入之后-->
   <!--vue-picture-manager-->
-  <link rel="stylesheet" href="../static/iconfont/iconfont.css">
   <script src="../dist/vue-picture-manager.js"></script>
  ```
 
