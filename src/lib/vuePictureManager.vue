@@ -87,6 +87,18 @@
 
     },
     methods: {
+      mapData(urlList,dataList,key){
+        var ary=[];
+        for(var i=0;i<urlList.length;i++){
+          for(var j=0;j<dataList.length;j++){
+            if(urlList[i]==dataList[j][key]){
+              ary.push(dataList[j]);
+              break;
+            }
+          }
+        }
+        return ary;
+      },
       ensure() {
         this.dialogVisible = false;
         this.$emit('selected',this.selectedImgUrl);

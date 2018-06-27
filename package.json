@@ -1,7 +1,7 @@
 {
   "name": "vue-picture-manager",
   "description": "A Vue.js project",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "trubasa <1141521502@qq.com>",
   "main": "dist/vue-picture-manager.js",
   "repository": {

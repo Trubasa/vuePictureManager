@@ -67,6 +67,8 @@
       },
       selected(val) {
         console.log('选中的图片url：', val);
+        var dataList=this.$refs.pictureManager.mapData(val,simulator.imgList,'url');
+        console.log('完整数据:',dataList);
       }
     }
   }

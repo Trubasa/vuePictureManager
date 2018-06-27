@@ -12,8 +12,8 @@
 
   <!--必须保证在vue和element-ui的引入之后-->
   <!--vue-picture-manager-->
-  <link rel="stylesheet" href="../static/iconfont/iconfont.css">
   <script src="../dist/vue-picture-manager.js"></script>
+  <script src="../static/data.js"></script>
 </head>
 <body>
 
@@ -82,7 +82,9 @@
         }
       },
       selected(val) {
-        console.log('选中的图片url：', val);
+        console.log('选中的图片url：', val)
+        var dataList=this.$refs.pictureManager.mapData(val,simulator.imgList,'url');
+        console.log('完整数据:',dataList);
       }
     }
   })
